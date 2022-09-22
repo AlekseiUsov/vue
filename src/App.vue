@@ -1,19 +1,21 @@
 <template>
   <div id="app">
+    <ToDoList />
   </div>
 </template>
 
 <script>
-
+import ToDoList from "@/components/ToDoList";
 export default {
   name: "App",
   components: {
+    ToDoList,
   },
 };
 </script>
 
 <style lang="scss">
-#app {
+ #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
