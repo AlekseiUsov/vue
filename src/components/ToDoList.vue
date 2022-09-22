@@ -1,16 +1,42 @@
 <template>
     <section class="ToDolist">
         <div class="ToDoBlock">
+            <img class="ToDoBlock__image" src="../assets/background-image.svg">
             <h1 class="ToDoBlock__title">to do list</h1>
             <ul class="ToDoBlock__list">
                 <li class="ToDoBlock__task">
-                    <label>
-                        <span class="ToDoBlock__checkbox"></span>
+                    <label class="ToDoBlock__label">
                         <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox"></span>
                         Task1
                     </label>
+                    <label class="ToDoBlock__label">
+                        <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox ToDoBlock__checkbox-close"></span>
+                    </label>
                 </li>
-
+                <li class="ToDoBlock__task">
+                    <label class="ToDoBlock__label">
+                        <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox"></span>
+                        Task2
+                    </label>
+                    <label class="ToDoBlock__label">
+                        <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox ToDoBlock__checkbox-close"></span>
+                    </label>
+                </li>
+                <li class="ToDoBlock__task">
+                    <label class="ToDoBlock__label">
+                        <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox"></span>
+                        Task3
+                    </label>
+                    <label class="ToDoBlock__label">
+                        <input type="checkbox" class="ToDoBlock__input">
+                        <span class="ToDoBlock__checkbox ToDoBlock__checkbox-close"></span>
+                    </label>
+                </li>
                 <li class="ToDoBlock__task ToDoBlock__task-last">Add a new task</li>
             </ul>
             <div class="ToDoBlock__footer">
@@ -38,6 +64,7 @@ $brown: #7F4B13;
 $white: #fff;
 
 .ToDolist {
+    position: relative;
     background: linear-gradient(104.11deg, #FF7E5F 14.52%, #FEB567 87.26%);
     color: $brown;
     font-size: 20px;
@@ -46,10 +73,20 @@ $white: #fff;
 }
 
 .ToDoBlock {
+    position: relative;
     display: block;
     margin: 0 auto;
     padding: 0;
     width: 34rem;
+    z-index: 20;
+
+    &__image {
+        height: 387px;
+        top: -8%;
+        right: -27%;
+        position: absolute;
+        z-index: -1;
+    }
 
     &__title {
         margin: 0;
@@ -65,6 +102,10 @@ $white: #fff;
     }
 
     &__task {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 1rem 0 0;
         width: calc(34rem - 4rem);
         margin: 1.5rem auto 0;
         border-radius: 0.5rem;
@@ -82,22 +123,46 @@ $white: #fff;
     }
 
     &__label {
-        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__close {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__input {
+        opacity: 0;
     }
 
     &__checkbox {
-        position: absolute;
-        margin-top: 0.1em;
-        margin-left: -0.7em;
-        width: 1em;
-        height: 1em;
+        display: block;
+        width: 1rem;
+        height: 1rem;
         border: 1px solid $yellow;
         border-radius: 0.2em;
+        transition: 0.2s;
     }
 
+
     &__input:checked+&__checkbox {
+        background-image: url('../assets/checked.svg');
+        background-size: contain;
         background-color: #FEB567;
     }
+
+    &__input:checked+&__checkbox-close {
+        background-image: url('../assets/cross.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 0.5rem;
+        background-color: $light-beige;
+        transition: none;
+    }
+
 
     // label {
     //     display: flex;
