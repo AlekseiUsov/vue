@@ -163,41 +163,6 @@ $white: #fff;
         transition: none;
     }
 
-
-    // label {
-    //     display: flex;
-    //     align-items: center;
-    // }
-
-    // &__checkbox-real {
-    //     width: 1rem;
-    //     height: 1rem;
-    // }
-
-    // &__checkbox-custom {
-    //     margin: 0 0.5rem;
-    //     display: inline-block;
-    //     width: 1.2rem;
-    //     height: 1.2rem;
-    //     border: 1px solid $yellow;
-    //     border-radius: 0.2rem;
-    // }
-
-    // &__checkbox-custom::before {
-    //     content: '';
-    //     display: none;
-    //     width: 1.2rem;
-    //     height: 1.2rem;
-    //     border-radius: 0.2rem;
-    //     background-image: url('../assets/checked.svg');
-    //     background-size: contain;
-    //     transition: 0.2s;
-    // }
-
-    // &__checkbox-real:checked+&__checkbox-custom {
-    //     background-color: $yellow;
-    // }
-
     &__footer {
         display: flex;
         align-items: center;
