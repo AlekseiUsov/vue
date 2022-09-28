@@ -1,21 +1,30 @@
 <template>
   <div id="app">
-    <ToDoList />
+    <ToDoApp />
   </div>
 </template>
 
 <script>
-import ToDoList from "@/components/ToDoList";
+import ToDoApp from "@/components/ToDoApp.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      todos: [
+        { id: 1, title: 'Task 1', isChecked: false },
+        { id: 2, title: 'Task 2', isChecked: false },
+        { id: 3, title: 'Task 3', isChecked: false }
+      ]
+    }
+  },
   components: {
-    ToDoList,
+    ToDoApp
   },
 };
 </script>
 
 <style lang="scss">
- #app {
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
