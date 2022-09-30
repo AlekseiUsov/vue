@@ -1,7 +1,7 @@
 <template>
     <div class="ToDoApp">
-        <img class="image" src="../assets/background-image.svg">
-        <div class="block">
+        <img :class="$style.image" src="../assets/background-image.svg">
+        <div :class="$style.block">
             <title />
             <taskList />
         </div>
