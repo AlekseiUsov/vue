@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul :class="$style.list">
-            <task />
+            <task v-for="task in tasks" v-bind:key="task.title" />
             <addTask />
         </ul>
     </div>
@@ -13,7 +13,15 @@ import addTask from '@/components/atoms/addTask';
 
 export default {
     name: "taskList",
-    props: ['todos'],
+    data() {
+        return {
+            tasks: [
+                { id: 1, title: "Task 1", isChecked: false },
+                { id: 2, title: "Task 2", isChecked: false },
+                { id: 3, title: "Task 3", isChecked: false },
+            ],
+        };
+    },
     components: {
         task,
         addTask

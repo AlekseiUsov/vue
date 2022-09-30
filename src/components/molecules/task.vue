@@ -11,6 +11,11 @@ import close from '@/components/atoms/close';
 
 
 export default {
+    props: {
+        task: {
+            type: Object
+        }
+    },
     name: "task",
     components: {
         checkbox,
