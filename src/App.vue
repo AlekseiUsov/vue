@@ -1,24 +1,16 @@
 <template>
   <div id="app">
-    <ToDoApp />
+    <todo />
   </div>
 </template>
 
 <script>
-import ToDoApp from "@/components/ToDoApp";
+import todo from "@/components/todo";
+
 export default {
-  name: "App",
-  data() {
-    return {
-      todos: [
-        { id: 1, title: 'Task 1', isChecked: false },
-        { id: 2, title: 'Task 2', isChecked: false },
-        { id: 3, title: 'Task 3', isChecked: false }
-      ]
-    }
-  },
+  name: "app",
   components: {
-    ToDoApp
+    todo
   },
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
-    <div class="ToDoApp">
+    <div :class="$style.todo">
         <img :class="$style.image" src="../assets/background-image.svg">
         <div :class="$style.block">
-            <title />
+            <titleToDo />
             <taskList />
         </div>
     </div>
@@ -55,13 +55,13 @@
 
   
 <script>
-import title from '@/components/atoms/title';
+import titleToDo from '@/components/atoms/titleToDo';
 import taskList from '@/components/organisms/taskList';
 
 export default {
-    name: "ToDoApp",
+    name: "todo",
     components: {
-        title,
+        titleToDo,
         taskList
     }
 }
@@ -70,7 +70,7 @@ export default {
 <style lang="scss">
 @import "@/assets/main.scss";
 
-.ToDoApp {
+.todo {
     position: relative;
     background: linear-gradient(104.11deg, #FF7E5F 14.52%, #FEB567 87.26%);
     color: $brown;
@@ -96,41 +96,40 @@ export default {
     position: absolute;
     z-index: -1;
 }
-
-// &__input:checked+&__checkbox-close {
-//     background-image: url('../assets/cross.svg');
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: 0.5rem;
-//     background-color: $light-beige;
-//     transition: none;
-// }
-
-// &__footer {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     padding: 0 1rem;
-//     background-color: $beige;
-//     color: $transparent-beige;
-// }
-
-// &__menu {
-//     padding: 0.25rem 1rem;
-//     list-style: none;
-//     text-decoration: none;
-//     display: flex;
-//     align-items: center;
-// }
-
-// &__item {
-//     padding-left: 1rem;
-// }
-
-// &__item-active {
-//     border: 1px solid $transparent-beige;
-//     border-radius: 0.2rem;
-//     padding: 0.1rem 0.4rem;
-// }
 </style>
   
+// &__input:checked+&__checkbox-close {
+    //     background-image: url('../assets/cross.svg');
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-size: 0.5rem;
+    //     background-color: $light-beige;
+    //     transition: none;
+    // }
+    
+    // &__footer {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     padding: 0 1rem;
+    //     background-color: $beige;
+    //     color: $transparent-beige;
+    // }
+    
+    // &__menu {
+    //     padding: 0.25rem 1rem;
+    //     list-style: none;
+    //     text-decoration: none;
+    //     display: flex;
+    //     align-items: center;
+    // }
+    
+    // &__item {
+    //     padding-left: 1rem;
+    // }
+    
+    // &__item-active {
+    //     border: 1px solid $transparent-beige;
+    //     border-radius: 0.2rem;
+    //     padding: 0.1rem 0.4rem;
+    // }
