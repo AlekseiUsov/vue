@@ -1,7 +1,7 @@
 <template>
     <label :class="$style.label">
-        <input type="checkbox" :class="$style.input" />
-        <span :class="$style.close" />
+        <input type="checkbox" :class="$style.inputClose" />
+        <span :class="$style.close"></span>
     </label>
 </template>
 
@@ -12,12 +12,16 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/styles/main.scss";
+@import "@/assets/main.scss";
 
 .label {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.inputClose {
+    opacity: 0;
 }
 
 .close {
@@ -27,10 +31,11 @@ export default {
     border: 1px solid $yellow;
     border-radius: 0.2em;
     transition: 0.2s;
+    margin-right: 0.5rem;
 }
 
-.input:checked+.close {
-    background-image: url('../assets/cross.svg');
+.inputClose:checked+.close {
+    background-image: url('../../assets/cross.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 0.5rem;

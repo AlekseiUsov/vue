@@ -1,8 +1,8 @@
 <template>
     <label :class="$style.label">
-        <input type="checkbox" :class="$style.input" />
+        <input type="checkbox" :class="$style.inputCheckbox" />
         <span :class="$style.checkbox"></span>
-        {{task.title}}
+        <span :class="$style.checkboxText">task</span>
     </label>
 </template>
 
@@ -13,16 +13,19 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/styles/main.scss";
+@import "@/assets/main.scss";
 
 .label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
-.input {
+.inputCheckbox {
     opacity: 0;
+}
+
+.checkboxText {
+    color: $brown;
 }
 
 .checkbox {
@@ -32,10 +35,11 @@ export default {
     border: 1px solid $yellow;
     border-radius: 0.2em;
     transition: 0.2s;
+    margin-right: 0.5rem;
 }
 
-.input:checked+.checkbox {
-    background-image: url('../assets/checked.svg');
+.inputCheckbox:checked+.checkbox {
+    background-image: url('../../assets/checked.svg');
     background-size: contain;
     background-color: $yellow;
 }

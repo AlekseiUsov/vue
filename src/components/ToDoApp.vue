@@ -1,9 +1,14 @@
 <template>
     <div class="ToDoApp">
+        <img class="image" src="../assets/background-image.svg">
         <div class="block">
-            <img class="image" src="../assets/background-image.svg">
+            <title />
             <taskList />
-            <!--        <ul class="ToDoBlock__list">
+        </div>
+    </div>
+</template>
+
+        <!--        <ul class="ToDoBlock__list">
                 <li class="ToDoBlock__task">
                     <label class="ToDoBlock__label">
                         <input type="checkbox" class="ToDoBlock__input">
@@ -47,16 +52,16 @@
                     <li class="ToDoBlock__item">Completed</li>
                 </u>
             </div> -->
-        </div>
-    </div>
-</template>
+
   
 <script>
-import taskList from '@/componets/organisms/taskList.vue';
+import title from '@/components/atoms/title';
+import taskList from '@/components/organisms/taskList';
 
 export default {
     name: "ToDoApp",
     components: {
+        title,
         taskList
     }
 }
@@ -81,8 +86,8 @@ export default {
     padding: 0;
     width: 34rem;
     z-index: 20;
+    background-color: $white;
 }
-
 
 .image {
     height: 387px;
@@ -91,8 +96,6 @@ export default {
     position: absolute;
     z-index: -1;
 }
-
-
 
 // &__input:checked+&__checkbox-close {
 //     background-image: url('../assets/cross.svg');

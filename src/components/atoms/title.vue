@@ -3,11 +3,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+    name: "title"
+};
 </script>
 
 <style lang="scss" module>
-@import "@/styles/main.scss";
+@import "@/assets/main.scss";
 
 .title {
     margin: 0;

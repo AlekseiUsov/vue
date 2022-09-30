@@ -1,11 +1,14 @@
 <template>
     <li :class="$style.task">
+        <checkbox />
+        <close />
     </li>
 </template>
 
 <script>
-import checkbox from '@/componets/atoms/checkbox.vue';
-import close from '@/componets/atoms/close';
+import checkbox from '@/components/atoms/checkbox';
+import close from '@/components/atoms/close';
+
 
 export default {
     components: {
@@ -16,27 +19,19 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import "@/assets/main.scss";
+
 .task {
     display: flex;
     justify-content: space-between;
+    padding: 0.25rem;
     box-sizing: border-box;
-    padding: 0 1rem 0 0;
-    width: calc(34rem - 4rem);
-    margin: 1.5rem auto 0;
     border-radius: 0.5rem;
     background-color: $light-beige;
+    margin-top: 1rem;
 }
 
 .task:first-child {
     margin-top: 0;
 }
-
-.task:last-child {
-    justify-content: center;
-    color: $light-beige;
-    background: $ivory;
-    border: 2.5px dashed $light-beige;
-}
-
-@import "@/styles/main.scss";
 </style>
