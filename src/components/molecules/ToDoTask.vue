@@ -1,28 +1,26 @@
 <template>
     <li :class="$style.task">
-        <checkbox />
+        <ToDoCheckbox />
         {{title}}
-        <close />
+        <ToDoClose />
     </li>
 </template>
 
 <script>
-import checkbox from '@/components/atoms/checkbox';
-import close from '@/components/atoms/close';
+import ToDoCheckbox from '@/components/atoms/ToDoCheckbox';
+import ToDoClose from '@/components/atoms/ToDoClose';
 
 
 export default {
+    name: "ToDoTask",
+    components: {
+        ToDoCheckbox,
+        ToDoClose,
+    },
     props: {
-        task: {
-            type: Object,
-        },
         title: String,
     },
-    name: "task",
-    components: {
-        checkbox,
-        close,
-    }
+
 };
 </script>
 

@@ -2,13 +2,12 @@
     <label :class="$style.label">
         <input type="checkbox" :class="$style.inputCheckbox" />
         <span :class="$style.checkbox"></span>
-        <span :class="$style.checkboxText"></span>
     </label>
 </template>
 
 <script>
 export default {
-    name: "checkbox"
+    name: "ToDoCheckbox"
 };
 </script>
 

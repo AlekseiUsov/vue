@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: "close"
+    name: "ToDoClose"
 };
 </script>
 

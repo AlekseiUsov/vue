@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <todo />
+    <ToDo />
   </div>
 </template>
 
 <script>
-import todo from "@/components/todo";
+import ToDo from "@/components/ToDo";
 
 export default {
   name: "app",
   components: {
-    todo
+    ToDo
   },
 };
 </script>
