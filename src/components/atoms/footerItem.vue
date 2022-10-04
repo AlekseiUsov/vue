@@ -1,13 +1,16 @@
 <template>
-    <li :class="$style.footerItem"></li>
+    <li :class="$style.footerItem">
+        {{title}}
+    </li>
 </template>
 
 <script>
 export default {
     props: {
-        footerItem: {
-            type: String
-        }
+        task: {
+            type: Object,
+        },
+        title: String,
     },
     name: "footerItem"
 };

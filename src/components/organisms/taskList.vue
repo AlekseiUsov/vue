@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul :class="$style.list">
-            <task v-for="task in tasks" v-bind:key="task.title" />
+            <task v-for="task in tasks" :key="task.id" :title="task.title" />
             <addTask />
         </ul>
     </div>
@@ -24,7 +24,7 @@ export default {
     },
     components: {
         task,
-        addTask
+        addTask,
     }
 }
 </script>

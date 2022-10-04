@@ -2,7 +2,7 @@
     <div :class="$style.footer">
         <footerCurrentPage />
         <ul :class="$style.menu">
-            <footerItem v-for="item in items" v-bind:key="item" />
+            <footerItem v-for="item in items" :key="item.id" :title="item.title" />
         </ul>
     </div>
 </template>
@@ -14,7 +14,11 @@ export default {
     name: "footerArea",
     data() {
         return {
-            items: ['All', 'Active', 'Complited'],
+            items: [
+                { id: 1, title: "All" },
+                { id: 2, title: "Active" },
+                { id: 3, title: "Completed" },
+            ],
         };
     },
     components: {
@@ -33,7 +37,7 @@ export default {
     justify-content: space-between;
     background-color: $beige;
     color: $transparent-beige;
-    padding: 0.5rem 2rem;
+    padding: 0.05rem 2rem;
 }
 
 .menu {

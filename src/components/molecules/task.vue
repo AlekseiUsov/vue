@@ -1,6 +1,7 @@
 <template>
     <li :class="$style.task">
         <checkbox />
+        {{title}}
         <close />
     </li>
 </template>
@@ -13,8 +14,9 @@ import close from '@/components/atoms/close';
 export default {
     props: {
         task: {
-            type: Object
-        }
+            type: Object,
+        },
+        title: String,
     },
     name: "task",
     components: {
