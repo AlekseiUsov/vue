@@ -1,18 +1,18 @@
 <template>
     <div>
-        <div :class="$style.addTask">Add a new task</div>
+        <div :class="$style.AddTask">Add a new task</div>
     </div>
 </template>
     
 <script>
 export default {
-    name: " addTask"
+    name: "ToDoAddTask"
 }; </script>
 
 <style lang="scss" module>
 @import "@/assets/main.scss";
 
-.addTask {
+.AddTask {
     margin-top: 1rem;
     color: $beige;
     background-color: $ivory;

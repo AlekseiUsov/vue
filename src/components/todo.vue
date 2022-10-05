@@ -2,24 +2,24 @@
     <div :class="$style.todo">
         <img :class="$style.image" src="../assets/background-image.svg">
         <div :class="$style.block">
-            <titleToDo />
-            <taskList />
-            <footerArea />
+            <ToDoTitle />
+            <ToDoList />
+            <ToDoFooter/>
         </div>
     </div>
 </template>
   
 <script>
-import titleToDo from '@/components/atoms/titleToDo';
-import taskList from '@/components/organisms/taskList';
-import footerArea from '@/components/organisms/footerArea';
+import ToDoTitle from '@/components/atoms/ToDoTitle';
+import ToDoList from '@/components/organisms/ToDoList';
+import ToDoFooter from '@/components/organisms/ToDoFooter';
 
 export default {
-    name: "todo",
+    name: "ToDo",
     components: {
-        titleToDo,
-        taskList,
-        footerArea
+        ToDoTitle,
+        ToDoList,
+        ToDoFooter
     }
 }
 </script>

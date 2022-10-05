@@ -1,18 +1,22 @@
 <template>
     <div>
         <ul :class="$style.list">
-            <task v-for="task in tasks" :key="task.id" :title="task.title" />
-            <addTask />
+            <ToDoTask v-for="task in tasks" :key="task.id" :title="task.title" />
+            <ToDoAddTask />
         </ul>
     </div>
 </template>
 
 <script>
-import task from '@/components/molecules/task';
-import addTask from '@/components/atoms/addTask';
+import ToDoTask from '@/components/molecules/ToDoTask';
+import ToDoAddTask from '@/components/atoms/ToDoAddTask';
 
 export default {
-    name: "taskList",
+    name: "ToDoList",
+    components: {
+        ToDoTask,
+        ToDoAddTask,
+    },
     data() {
         return {
             tasks: [
@@ -22,10 +26,7 @@ export default {
             ],
         };
     },
-    components: {
-        task,
-        addTask,
-    }
+
 }
 </script>
 
