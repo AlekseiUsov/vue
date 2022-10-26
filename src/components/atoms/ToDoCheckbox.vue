@@ -1,13 +1,18 @@
 <template>
     <label :class="$style.label">
-        <input @click="$emit('checkCheckbox')" type="checkbox" :class="$style.inputCheckbox" />
+        <input @click="$emit('checkCheckbox')" type="checkbox" :class="$style.inputCheckbox" :checked="isChecked" />
         <span :class="$style.checkbox"></span>
     </label>
 </template>
 
 <script>
 export default {
-    name: "ToDoCheckbox"
+    name: "ToDoCheckbox",
+    props: {
+        isChecked: {
+            type: Boolean,
+        },
+    },
 };
 </script>
 

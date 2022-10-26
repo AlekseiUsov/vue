@@ -2,7 +2,7 @@
     <div>
         <ul :class="$style.list">
             <ToDoTask v-for="task in $store.state.tasks" :key="task.id" :title="task.title"
-                @changeStatus="() => changeStatusTask(task.id)" />
+                @changeStatus="() => changeStatusTask(task.id)" @closeTask="() => deleteTask(task.id)" />
             <ToDoNewTask />
         </ul>
     </div>
@@ -20,7 +20,7 @@ export default {
         ToDoNewTask,
     },
     computed: {
-        ...mapMutations(['changeStatusTask'])
+        ...mapMutations(['changeStatusTask', 'deleteTask'])
     }
 
 }

@@ -1,7 +1,7 @@
 <template>
-    <label :class="$style.label">
-        <span :class="$style.close"></span>
-    </label>
+    <div :class="$style.closeWrapper">
+        <span @click="$emit('close')" :class="$style.close"></span>
+    </div>
 </template>
 
 <script>
@@ -13,10 +13,9 @@ export default {
 <style lang="scss" module>
 @import "@/assets/main.scss";
 
-.label {
+.closeWrapper {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
 .inputClose {
@@ -38,5 +37,4 @@ export default {
     background-color: $light-beige;
     transition: none;
 }
-
 </style>

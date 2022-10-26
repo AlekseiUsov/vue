@@ -2,7 +2,7 @@
     <li :class="$style.task">
         <ToDoCheckbox @checkChecbox="$emit('changeStatus')" />
         {{ title }}
-        <ToDoCloseBth />
+        <ToDoCloseBth @close="$emit('closeTask')" />
     </li>
 </template>
 
