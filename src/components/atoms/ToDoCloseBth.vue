@@ -1,14 +1,12 @@
 <template>
     <label :class="$style.label">
-        <input type="checkbox" :class="$style.inputCheckbox" />
-        <span :class="$style.checkbox"></span>
-        <span :class="$style.checkboxText"></span>
+        <span :class="$style.close"></span>
     </label>
 </template>
 
 <script>
 export default {
-    name: "checkbox"
+    name: "ToDoCloseBth"
 };
 </script>
 
@@ -18,17 +16,14 @@ export default {
 .label {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
-.inputCheckbox {
+.inputClose {
     opacity: 0;
 }
 
-.checkboxText {
-    color: $brown;
-}
-
-.checkbox {
+.close {
     display: block;
     width: 1rem;
     height: 1rem;
@@ -36,11 +31,12 @@ export default {
     border-radius: 0.2em;
     transition: 0.2s;
     margin-right: 0.5rem;
+    background-image: url('../../assets/cross.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0.5rem;
+    background-color: $light-beige;
+    transition: none;
 }
 
-.inputCheckbox:checked+.checkbox {
-    background-image: url('../../assets/checked.svg');
-    background-size: contain;
-    background-color: $yellow;
-}
 </style>

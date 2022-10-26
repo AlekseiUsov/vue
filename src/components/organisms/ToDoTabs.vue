@@ -1,29 +1,20 @@
 <template>
     <div :class="$style.footer">
-        <footerCurrentPage />
+        <ToDoСounter />
         <ul :class="$style.menu">
-            <footerItem v-for="item in items" :key="item.id" :title="item.title" />
+            <ToDoTab v-for="tab in $store.state.tabs" :key="tab.id" :name="tab.name" />
         </ul>
     </div>
 </template>
 
 <script>
-import footerCurrentPage from '@/components/atoms/footerCurrentPage';
-import footerItem from '@/components/atoms/footerItem.vue';
+import ToDoСounter from '@/components/atoms/ToDoСounter';
+import ToDoTab from '@/components/atoms/ToDoTab';
 export default {
-    name: "footerArea",
-    data() {
-        return {
-            items: [
-                { id: 1, title: "All" },
-                { id: 2, title: "Active" },
-                { id: 3, title: "Completed" },
-            ],
-        };
-    },
+    name: "ToDoTabs",
     components: {
-        footerCurrentPage,
-        footerItem
+        ToDoСounter,
+        ToDoTab
     }
 };
 </script>

@@ -1,17 +1,17 @@
 <template>
-    <p :class="$style.footerCurrentPage">1/3 left</p>
+    <p :class="$style.counter">1/3 left</p>
 </template>
 
 <script>
 export default {
-    name: "footerCurrentPage"
+    name: "ToDoCounter"
 };
 </script>
 
 <style lang="scss" module>
 @import "@/assets/main.scss";
 
-.footerCurrentPage {
+.counter {
     color: $transparent-beige;
 }
 </style>
