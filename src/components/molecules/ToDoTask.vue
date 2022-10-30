@@ -1,6 +1,6 @@
 <template>
     <li :class="$style.task">
-        <ToDoCheckbox @checkChecbox="$emit('changeStatus')" />
+        <ToDoCheckbox @checkCheckbox="$emit('changeStatus')" />
         {{ title }}
         <ToDoCloseBth @close="$emit('closeTask')" />
     </li>
@@ -19,8 +19,7 @@ export default {
     },
     props: {
         title: String,
-    },
-
+    }
 };
 </script>
 

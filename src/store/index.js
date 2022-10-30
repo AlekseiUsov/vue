@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import { v4 as uuidv4 } from 'uuid';
 
 Vue.use(Vuex);
 
@@ -29,12 +29,31 @@ const store = new Vuex.Store({
       state.tasks = state.tasks.filter((task) => task.id != id);
     },
     addTask(state, value) {
-      state.tasks.push(value)
-    }
+      const newTask = {
+        id: uuidv4(),
+        title: value,
+        isChecked: false
+      }
+      state.tasks.push(newTask);
+    },
   },
   actions: {},
-  getters: {},
-
+  getters: {
+    filterTasks(state, filter) {
+      if (filter === 'All') {
+        console.log(filter)
+        return state.tasks
+      }
+      if (filter === 'Active') {
+        console.log(filter)
+        return state.tasks.filter((task) => task.isChecked === false)
+      }
+      if (filter === 'Completed') {
+        console.log(filter)
+        return state.tasks.filter((task) => task.isChecked === true)
+      }
+    },
+  },
   modules: {}
 })
 export default store;

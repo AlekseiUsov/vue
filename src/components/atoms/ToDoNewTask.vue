@@ -1,12 +1,22 @@
 <template>
-    <div>
-        <input :class="$style.addTask" placeholder="Add a new task">
-    </div>
+    <input :class="$style.addTask" placeholder="Add a new task" @keyup.enter="getInputValue" v-model="value">
 </template>
     
 <script>
 export default {
     name: "ToDoNewTask",
+    data() {
+        return {
+            value: '',
+        }
+    },
+    methods: {
+        getInputValue() {
+            this.$emit('getInputValue', this.value)
+            this.value = ''
+        }
+    }
+
 }; 
 </script>
 

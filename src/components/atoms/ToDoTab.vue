@@ -1,5 +1,5 @@
 <template>
-    <li :class="$style.ToDoTab">
+    <li :class="[$style.tab, { [$style.active]: isActive }]" @click="$emit('changeTab')">
         {{ name }}
     </li>
 </template>
@@ -9,8 +9,12 @@ export default {
     name: "ToDoTab",
     props: {
         name: String,
+        isActive: {
+            type: Boolean,
+            default: false,
+        },
     },
-};
+}
 </script>
 
 <style lang="scss" module>
@@ -21,7 +25,7 @@ export default {
     padding-left: 1rem;
 }
 
-.ToDoTabActive {
+.active {
     border: 1px solid $transparent-beige;
     border-radius: 0.2rem;
     padding: 0.1rem 0.4rem;

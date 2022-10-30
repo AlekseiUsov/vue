@@ -2,7 +2,8 @@
     <div :class="$style.footer">
         <ToDoСounter />
         <ul :class="$style.menu">
-            <ToDoTab v-for="tab in $store.state.tabs" :key="tab.id" :name="tab.name" />
+            <ToDoTab v-for="tab in $store.state.tabs" :key="tab.id" :name="tab.name" isActive
+                @changeTab="() => filterTasks(tab.name)" />
         </ul>
     </div>
 </template>
@@ -15,8 +16,18 @@ export default {
     components: {
         ToDoСounter,
         ToDoTab
+    },
+    methods: {
+        activeTab(tabName) {
+            this.$store.commit('activeTab', tabName);
+        },
+    },
+    computed: {
+        filterTasks(filter) {
+            return this.$store.getters.filterTasks(filter)
+        },
     }
-};
+}
 </script>
 
 <style lang="scss" module>

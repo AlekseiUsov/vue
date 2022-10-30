@@ -3,7 +3,7 @@
         <ul :class="$style.list">
             <ToDoTask v-for="task in $store.state.tasks" :key="task.id" :title="task.title"
                 @changeStatus="() => changeStatusTask(task.id)" @closeTask="() => deleteTask(task.id)" />
-            <ToDoNewTask />
+            <ToDoNewTask @getInputValue="(value) => addTask(value)" />
         </ul>
     </div>
 </template>
@@ -11,7 +11,6 @@
 <script>
 import ToDoTask from '@/components/molecules/ToDoTask';
 import ToDoNewTask from '@/components/atoms/ToDoNewTask';
-import { mapMutations } from 'vuex';
 
 export default {
     name: "ToDoList",
@@ -19,8 +18,16 @@ export default {
         ToDoTask,
         ToDoNewTask,
     },
-    computed: {
-        ...mapMutations(['changeStatusTask', 'deleteTask'])
+    methods: {
+        changeStatusTask(id) {
+            this.$store.commit('changeStatusTask', id);
+        },
+        deleteTask(id) {
+            this.$store.commit('deleteTask', id);
+        },
+        addTask(value) {
+            this.$store.commit('addTask', value);
+        }
     }
 
 }
