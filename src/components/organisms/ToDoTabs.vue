@@ -2,8 +2,8 @@
     <div :class="$style.footer">
         <ToDoСounter />
         <ul :class="$style.menu">
-            <ToDoTab v-for="tab in $store.state.tabs" :key="tab.id" :name="tab.name" isActive
-                @changeTab="() => filterTasks(tab.name)" />
+            <ToDoTab v-for="tab in $store.state.tabs" :key="tab.id" :name="tab.name"
+                :isActive="$store.state.filter == tab.name" @changeTab="() => setActiveTab(tab.name)" />
         </ul>
     </div>
 </template>
@@ -18,15 +18,10 @@ export default {
         ToDoTab
     },
     methods: {
-        activeTab(tabName) {
-            this.$store.commit('activeTab', tabName);
+        setActiveTab(tabName) {
+            this.$store.commit('setActiveTab', tabName);
         },
     },
-    computed: {
-        filterTasks(filter) {
-            return this.$store.getters.filterTasks(filter)
-        },
-    }
 }
 </script>
 

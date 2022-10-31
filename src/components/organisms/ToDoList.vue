@@ -1,8 +1,9 @@
 <template>
     <div>
         <ul :class="$style.list">
-            <ToDoTask v-for="task in $store.state.tasks" :key="task.id" :title="task.title"
-                @changeStatus="() => changeStatusTask(task.id)" @closeTask="() => deleteTask(task.id)" />
+            <ToDoTask v-for="task in $store.getters.filterTasks" :key="task.id" :title="task.title"
+                :isChecked="task.isChecked" @changeStatus="() => changeStatusTask(task.id)"
+                @closeTask="() => deleteTask(task.id)" />
             <ToDoNewTask @getInputValue="(value) => addTask(value)" />
         </ul>
     </div>

@@ -1,11 +1,14 @@
 <template>
-    <p :class="$style.counter">1/3 left</p>
+    <p :class="$style.counter">
+        {{ $store.state.tasks.filter((task) => task.isChecked != true).length }}/
+        {{ $store.state.tasks.length }}
+        left</p>
 </template>
 
 <script>
 export default {
-    name: "ToDoCounter"
-};
+    name: "ToDoCounter",
+}
 </script>
 
 <style lang="scss" module>

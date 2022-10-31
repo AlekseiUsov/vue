@@ -16,6 +16,7 @@ const store = new Vuex.Store({
       { id: 2, name: "Active" },
       { id: 3, name: "Completed" },
     ],
+    filter: 'All',
   },
   mutations: {
     changeStatusTask(state, id) {
@@ -36,20 +37,20 @@ const store = new Vuex.Store({
       }
       state.tasks.push(newTask);
     },
+    setActiveTab(state, tabName) {
+      state.filter = tabName
+    }
   },
   actions: {},
   getters: {
-    filterTasks(state, filter) {
-      if (filter === 'All') {
-        console.log(filter)
+    filterTasks(state) {
+      if (state.filter === 'All') {
         return state.tasks
       }
-      if (filter === 'Active') {
-        console.log(filter)
+      if (state.filter === 'Active') {
         return state.tasks.filter((task) => task.isChecked === false)
       }
-      if (filter === 'Completed') {
-        console.log(filter)
+      if (state.filter === 'Completed') {
         return state.tasks.filter((task) => task.isChecked === true)
       }
     },

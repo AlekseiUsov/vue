@@ -47,10 +47,10 @@ export default {
 }
 
 .image {
-    height: 387px;
-    top: -8%;
-    right: -27%;
+    height: 487px;
+    top: 5%;
+    right: 17%;
     position: absolute;
-    z-index: -1;
+    z-index: 5;
 }
 </style>

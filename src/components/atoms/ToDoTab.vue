@@ -20,14 +20,15 @@ export default {
 <style lang="scss" module>
 @import "@/assets/main.scss";
 
-.ToDoTab {
+.tab {
     color: $transparent-beige;
-    padding-left: 1rem;
+    padding-left: 0.25rem;
 }
 
 .active {
     border: 1px solid $transparent-beige;
     border-radius: 0.2rem;
     padding: 0.1rem 0.4rem;
+    margin-left: 1rem;
 }
 </style>

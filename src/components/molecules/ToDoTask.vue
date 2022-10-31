@@ -1,6 +1,6 @@
 <template>
     <li :class="$style.task">
-        <ToDoCheckbox @checkCheckbox="$emit('changeStatus')" />
+        <ToDoCheckbox @checkCheckbox="$emit('changeStatus')" :isChecked="isChecked" />
         {{ title }}
         <ToDoCloseBth @close="$emit('closeTask')" />
     </li>
@@ -19,6 +19,10 @@ export default {
     },
     props: {
         title: String,
+        isChecked: {
+            type: Boolean,
+            default: false
+        }
     }
 };
 </script>
