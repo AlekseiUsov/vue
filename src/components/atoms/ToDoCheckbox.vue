@@ -1,19 +1,19 @@
 <template>
-    <label :class="$style.label">
-        <input @click="$emit('checkCheckbox')" type="checkbox" :class="$style.inputCheckbox" :checked="isChecked" />
-        <span :class="$style.checkbox"></span>
-    </label>
+  <label :class="$style.label">
+    <input type="checkbox" :class="$style.inputCheckbox" :checked="isChecked" @click="$emit('checkCheckbox')" />
+    <span :class="$style.checkbox"></span>
+  </label>
 </template>
 
 <script>
 export default {
-    name: "ToDoCheckbox",
-    props: {
-        isChecked: {
-            type: Boolean,
-            default: false,
-        },
+  name: "ToDoCheckbox",
+  props: {
+    isChecked: {
+      type: Boolean,
+      default: false,
     },
+  },
 };
 </script>
 
@@ -21,31 +21,31 @@ export default {
 @import "@/assets/main.scss";
 
 .label {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .inputCheckbox {
-    opacity: 0;
+  opacity: 0;
 }
 
 .checkboxText {
-    color: $brown;
+  color: $brown;
 }
 
 .checkbox {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid $yellow;
-    border-radius: 0.2em;
-    transition: 0.2s;
-    margin-right: 0.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid $yellow;
+  border-radius: 0.2em;
+  transition: 0.2s;
+  margin-right: 0.5rem;
 }
 
 .inputCheckbox:checked+.checkbox {
-    background-image: url('../../assets/checked.svg');
-    background-size: contain;
-    background-color: $yellow;
+  background-image: url("../../assets/checked.svg");
+  background-size: contain;
+  background-color: $yellow;
 }
 </style>
