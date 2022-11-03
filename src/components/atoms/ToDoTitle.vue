@@ -1,10 +1,10 @@
 <template>
-    <h1 :class="$style.title">to do list</h1>
+  <h1 :class="$style.title">to do list</h1>
 </template>
 
 <script>
 export default {
-    name: "ToDoTitle",
+  name: "ToDoTitle",
 };
 </script>
 
@@ -12,8 +12,8 @@ export default {
 @import "@/assets/main.scss";
 
 .title {
-    margin: 0;
-    padding: 0.5rem 0;
-    background-color: $beige;
+  margin: 0;
+  padding: 0.5rem 0;
+  background-color: $beige;
 }
 </style>

@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import { v4 as uuidv4 } from 'uuid';
+import Vue from "vue";
+import Vuex from "vuex";
+import { v4 as uuidv4 } from "uuid";
 
 Vue.use(Vuex);
 
@@ -16,7 +16,7 @@ const store = new Vuex.Store({
       { id: 2, name: "Active" },
       { id: 3, name: "Completed" },
     ],
-    filter: 'All',
+    filter: "All",
   },
   mutations: {
     changeStatusTask(state, id) {
@@ -25,36 +25,40 @@ const store = new Vuex.Store({
           task.isChecked = !task.isChecked;
         }
       })
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id != id);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     addTask(state, value) {
       const newTask = {
         id: uuidv4(),
         title: value,
-        isChecked: false
-      }
+        isChecked: false,
+      };
       state.tasks.push(newTask);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     setActiveTab(state, tabName) {
-      state.filter = tabName
-    }
+      state.filter = tabName;
+    },
   },
   actions: {},
   getters: {
     filterTasks(state) {
-      if (state.filter === 'All') {
-        return state.tasks
+      state.tasks = JSON.parse(localStorage.getItem("tasks"))
+      if (state.filter === "All") {
+        return state.tasks;
       }
-      if (state.filter === 'Active') {
-        return state.tasks.filter((task) => task.isChecked === false)
+      if (state.filter === "Active") {
+        return state.tasks.filter((task) => task.isChecked === false);
       }
-      if (state.filter === 'Completed') {
-        return state.tasks.filter((task) => task.isChecked === true)
+      if (state.filter === "Completed") {
+        return state.tasks.filter((task) => task.isChecked === true);
       }
     },
   },
-  modules: {}
-})
+  modules: {},
+});
 export default store;

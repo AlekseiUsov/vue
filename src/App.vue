@@ -10,7 +10,7 @@ import ToDo from "@/components/ToDo";
 export default {
   name: "app",
   components: {
-    ToDo
+    ToDo,
   },
 };
 </script>
