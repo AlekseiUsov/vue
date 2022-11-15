@@ -1,8 +1,6 @@
 <template>
   <p :class="$style.counter">
-    {{ $store.state.tasks.filter((task) => task.isChecked != true).length }}/
-    {{ $store.state.tasks.length }}
-    left
+    {{ $store.state.tasks.filter((task) => task.isChecked != true).length }}/{{ $store.state.tasks.length }} left
   </p>
 </template>
 
