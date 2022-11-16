@@ -37,7 +37,7 @@ export const mutations = {
       title: value,
       isChecked: false,
     };
-    state.tasks.push(newTask)
+    state.tasks.push(newTask);
     localStorage.setItem("tasks", JSON.stringify(state.tasks));
   },
   setActiveTab(state, tabName) {
@@ -47,17 +47,21 @@ export const mutations = {
 
 export const getters = {
   filterTasks(state) {
-    state.tasks = JSON.parse(localStorage.getItem("tasks"));
     if (state.filter === "All") {
+      state.tasks = JSON.parse(localStorage.getItem("tasks"));
       return state.tasks;
     }
-    if (state.filter === "Active") {
-      return state.tasks.filter((task) => task.isChecked === false);
+    else if (state.filter === "Active") {
+      state.task = state.tasks.filter((task) => task.isChecked === false);
+      state.tasks = JSON.parse(localStorage.getItem("tasks"));
+      return state.task
     }
-    if (state.filter === "Completed") {
-      return state.tasks.filter((task) => task.isChecked === true);
+    else if (state.filter === "Completed") {
+      state.task = state.tasks.filter((task) => task.isChecked === true);
+      state.tasks = JSON.parse(localStorage.getItem("tasks"));
+      return state.task
     }
-  },
+  }
 };
 
 const store = new Vuex.Store({
