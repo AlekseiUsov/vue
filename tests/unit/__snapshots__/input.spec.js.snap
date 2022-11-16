@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoNewTask.vue тестируем отрисовку компонента 1`] = `<input placeholder="Add a new task">`;

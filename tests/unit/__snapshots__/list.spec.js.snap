@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoList.vue тестируем отрисовку листа 1`] = `
+<li><label><input type="checkbox"> <span></span></label>
+
+  <div><span></span></div>
+</li>
+`;
