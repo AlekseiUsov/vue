@@ -29,8 +29,8 @@ describe("changeStatusTask", () => {
     })
 });
 
-describe("deleteTask", () => {
-    it("удаляет определенный таск", () => {
+describe("setActiveTab", () => {
+    it("меняет активную кнопку таба", () => {
         const state = {
             filter: "All",
         }
@@ -39,6 +39,23 @@ describe("deleteTask", () => {
 
         mutations.setActiveTab(state, 'complited');
         expect(state.filter).toBe('complited');
+    })
+});
+
+
+describe("deleteTask", () => {
+    it("удаляет определенный таск", () => {
+        const state = {
+            tasks: [
+                { id: 1, title: "Task 1", isChecked: false },
+                { id: 2, title: "Task 2", isChecked: false },
+                { id: 3, title: "Task 3", isChecked: false },
+                { id: 4, title: "Task 4", isChecked: false },
+            ]
+        }
+        mutations.deleteTask(state, 2);
+        mutations.deleteTask(state, 4);
+        expect(state.tasks).toEqual([{ id: 1, title: 'Task 1', isChecked: false }, { id: 3, title: "Task 3", isChecked: false }])
     })
 });
 
@@ -54,5 +71,12 @@ describe("тестируем геттеры", () => {
         }
         const actual = getters.filterTasks(state)
         expect(actual).toEqual([state.tasks[0], state.tasks[2]])
+        state.filter = 'All'
+        const actual2 = getters.filterTasks(state)
+        expect(actual2).toEqual([state.tasks[0], state.tasks[1], state.tasks[2]])
+        state.filter = 'Completed'
+        const actual3 = getters.filterTasks(state)
+        expect(actual3).toEqual([state.tasks[1]])
+
     })
 });

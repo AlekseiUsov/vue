@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToDoList.vue тестируем отрисовку листа 1`] = `
-<li><label><input type="checkbox"> <span></span></label>
-
-  <div><span></span></div>
-</li>
+exports[`ToDoList.vue моунит лист 1`] = `
+<div>
+  <ul>
+    <li><label><input type="checkbox"> <span></span></label>
+      Task 1
+      <div><span></span></div>
+    </li>
+    <li><label><input type="checkbox"> <span></span></label>
+      Task 2
+      <div><span></span></div>
+    </li>
+    <li><label><input type="checkbox"> <span></span></label>
+      Task 3
+      <div><span></span></div>
+    </li> <input placeholder="Add a new task">
+  </ul>
+</div>
 `;

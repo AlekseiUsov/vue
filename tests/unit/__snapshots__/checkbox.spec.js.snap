@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToDoCheckbox.vue тестируем клик по чекбоксу 1`] = `<label><input type="checkbox"> <span></span></label>`;
-
 exports[`ToDoCheckbox.vue тестируем чекбокс 1`] = `<label><input type="checkbox"> <span></span></label>`;

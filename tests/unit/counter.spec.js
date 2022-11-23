@@ -1,5 +1,6 @@
 import Vuex from "vuex";
 import { mount, createLocalVue } from "@vue/test-utils";
+
 import counter from "@/components/atoms/ToDoСounter.vue";
 
 const localVue = createLocalVue();
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
       { id: 3, title: "Task 3", isChecked: false },
     ],
   },
+  filter: "active"
 });
 
 describe("counter", () => {
@@ -22,6 +24,7 @@ describe("counter", () => {
       store,
       localVue,
     });
+    console.log(wrapper.find("p").element.textContent)
     expect(wrapper.find("p").text()).toBe("3/4 left");
   });
 });
