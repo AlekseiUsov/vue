@@ -45,23 +45,21 @@ export const getters = {
   filterTasks(state) {
     if (state.filter === "All") {
       return state.tasks;
-    }
-    else if (state.filter === "Active") {
+    } else if (state.filter === "Active") {
       state.task = state.tasks.filter((task) => task.isChecked === false);
-      return state.task
-    }
-    else if (state.filter === "Completed") {
+      return state.task;
+    } else if (state.filter === "Completed") {
       state.task = state.tasks.filter((task) => task.isChecked === true);
-      return state.task
+      return state.task;
     }
   },
   getDoneTasks(state) {
-    return (state.tasks.filter((task) => task.isChecked === true)).length;
+    return state.tasks.filter((task) => task.isChecked === true).length;
   },
   getAllTasks(state) {
-    console.log(state.tasks.length)
+    console.log(state.tasks.length);
     return state.tasks.length;
-  }
+  },
 };
 
 const store = new Vuex.Store({

@@ -1,30 +1,35 @@
 import Vuex from "vuex";
-import { mount, createLocalVue } from "@vue/test-utils";
 
-import counter from "@/components/atoms/ToDoСounter.vue";
+import counter from "../../src/components/atoms/ToDoСounter.vue";
+import { mount, createLocalVue } from "@vue/test-utils";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-const store = new Vuex.Store({
-  state: {
-    tasks: [
-      { id: 1, title: "Task 1", isChecked: true },
-      { id: 2, title: "Task 2", isChecked: false },
-      { id: 3, title: "Task 3", isChecked: false },
-      { id: 3, title: "Task 3", isChecked: false },
-    ],
-  },
-  filter: "active"
-});
+describe("Getters.vue", () => {
+  let getters;
+  let store;
 
-describe("counter", () => {
-  it("отрисовывает counter", () => {
-    const wrapper = mount(counter, {
-      store,
-      localVue,
+  beforeEach(() => {
+    getters = {
+      getDoneTasks: () => "2",
+      getAllTasks: () => "4",
+    };
+
+    store = new Vuex.Store({
+      getters,
     });
-    console.log(wrapper.find("p").element.textContent)
-    expect(wrapper.find("p").text()).toBe("3/4 left");
+  });
+
+  it("Отображает doneTasks", () => {
+    const wrapper = mount(counter, { store, localVue });
+    const p = wrapper.find("p");
+    expect(p.text()).toBe(getters.getDoneTasks());
+  });
+
+  it('Отображает "state.clicks" во втором теге p', () => {
+    const wrapper = mount(counter, { store, localVue });
+    const p = wrapper.findAll("p").at(1);
+    expect(p.text()).toBe("4");
   });
 });

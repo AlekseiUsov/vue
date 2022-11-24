@@ -18,6 +18,6 @@ describe("ToDoNewTask.vue", () => {
     const wrapper = mount(newTask);
 
     await wrapper.find("input").trigger("keyup.enter");
-    expect(wrapper.text()).toBe('');
+    expect(wrapper.text()).toBe("");
   });
 });

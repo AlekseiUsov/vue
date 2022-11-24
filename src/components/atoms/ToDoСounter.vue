@@ -1,12 +1,18 @@
 <template>
-  <p :class="$style.counter">
-    {{ $store.getters.getDoneTasks }}/{{ $store.getters.getAllTasks }} left
-  </p>
+  <div :class="$style.counter">
+    <p>{{ getDoneTasks }}</p>
+    /
+    <p>{{ getAllTasks }}</p>
+    left
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ToDoCounter",
+  computed: mapGetters(["getDoneTasks", "getAllTasks"]),
 };
 </script>
 
