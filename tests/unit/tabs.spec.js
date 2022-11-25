@@ -11,21 +11,38 @@ const mutations = {
     setActiveTab: jest.fn(),
 };
 
-const getters = {
-    getDoneTasks: () => "2",
-    getAllTasks: () => "4",
+const state = {
+    tabs: [
+        { id: 1, name: "All" },
+        { id: 2, name: "Active" },
+        { id: 3, name: "Completed" },
+    ],
+    filter: "Active",
 };
 
-const store = new Vuex.Store({ mutations, getters });
+
+const store = new Vuex.Store({ state, mutations });
 
 describe("ToDoList.vue", () => {
     it("тестируем активные таски", async () => {
         const wrapper = shallowMount(tabs, { store, localVue });
-
-        console.log(wrapper)
-        //console.log(wrapper.findComponent(tab))
         await wrapper.findComponent(tab).vm.$emit("changeTab");
 
-        expect(mutations.setActiveTab).toHaveBeenCalled()
+        expect(mutations.setActiveTab).toHaveBeenCalledWith(state, 'All')
+    });
+
+    it("тестируем активную таску", async () => {
+        const wrapper = shallowMount(tabs, { store, localVue });
+        const isActiveTabs = wrapper.findAllComponents(tab).filter(component => {
+            return component.props().isActive
+        })
+
+        expect(isActiveTabs.length).toBe(1)
+    });
+
+    it("тестируем правильное кол-во табов", async () => {
+        const wrapper = shallowMount(tabs, { store, localVue });
+        const allTabsLength = wrapper.findAllComponents(tab).length;
+        expect(allTabsLength).toBe(3)
     });
 });

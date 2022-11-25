@@ -1,9 +1,6 @@
 <template>
   <div :class="$style.counter">
-    <p>{{ getDoneTasks }}</p>
-    /
-    <p>{{ getAllTasks }}</p>
-    left
+    <span>{{ getDoneTasks }}</span>/<span>{{ getAllTasks }}</span>left
   </div>
 </template>
 

@@ -23,13 +23,13 @@ describe("Getters.vue", () => {
 
   it("Отображает doneTasks", () => {
     const wrapper = mount(counter, { store, localVue });
-    const p = wrapper.find("p");
-    expect(p.text()).toBe(getters.getDoneTasks());
+    const span = wrapper.find("span");
+    expect(span.text()).toBe(getters.getDoneTasks());
   });
 
   it('Отображает "state.clicks" во втором теге p', () => {
     const wrapper = mount(counter, { store, localVue });
-    const p = wrapper.findAll("p").at(1);
-    expect(p.text()).toBe("4");
+    const span = wrapper.findAll("span").at(1);
+    expect(span.text()).toBe("4");
   });
 });

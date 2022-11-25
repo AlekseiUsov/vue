@@ -60,7 +60,7 @@ describe("deleteTask", () => {
 });
 
 describe("тестируем геттеры", () => {
-  it("getters", () => {
+  it("filterTasks", () => {
     const state = {
       tasks: [
         { id: 1, title: "Task 1", isChecked: false },
@@ -77,5 +77,31 @@ describe("тестируем геттеры", () => {
     state.filter = "Completed";
     const actual3 = getters.filterTasks(state);
     expect(actual3).toEqual([state.tasks[1]]);
+  });
+
+  it("getDoneTasks", () => {
+    const state = {
+      tasks: [
+        { id: 1, title: "Task 1", isChecked: false },
+        { id: 2, title: "Task 2", isChecked: true },
+        { id: 3, title: "Task 3", isChecked: false },
+      ],
+      filter: "Active",
+    };
+    const actual = getters.getDoneTasks(state);
+    expect(actual).toEqual(1);
+  });
+
+  it("getAllTasks", () => {
+    const state = {
+      tasks: [
+        { id: 1, title: "Task 1", isChecked: false },
+        { id: 2, title: "Task 2", isChecked: true },
+        { id: 3, title: "Task 3", isChecked: false },
+      ],
+      filter: "Active",
+    };
+    const actual = getters.getAllTasks(state);
+    expect(actual).toEqual(3);
   });
 });

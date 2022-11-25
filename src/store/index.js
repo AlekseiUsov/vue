@@ -46,18 +46,15 @@ export const getters = {
     if (state.filter === "All") {
       return state.tasks;
     } else if (state.filter === "Active") {
-      state.task = state.tasks.filter((task) => task.isChecked === false);
-      return state.task;
+      return state.tasks.filter((task) => task.isChecked === false);
     } else if (state.filter === "Completed") {
-      state.task = state.tasks.filter((task) => task.isChecked === true);
-      return state.task;
+      return state.tasks.filter((task) => task.isChecked === true);
     }
   },
   getDoneTasks(state) {
     return state.tasks.filter((task) => task.isChecked === true).length;
   },
   getAllTasks(state) {
-    console.log(state.tasks.length);
     return state.tasks.length;
   },
 };
