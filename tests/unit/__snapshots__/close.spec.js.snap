@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoCloseBth.vue тестируем отрисовку компанента 1`] = `<div><span></span></div>`;

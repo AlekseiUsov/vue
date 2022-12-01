@@ -1,6 +1,11 @@
 <template>
   <label :class="$style.label">
-    <input type="checkbox" :class="$style.inputCheckbox" :checked="isChecked" @click="$emit('checkCheckbox')" />
+    <input
+      type="checkbox"
+      :class="$style.inputCheckbox"
+      :checked="isChecked"
+      @click="$emit('checkCheckbox')"
+    />
     <span :class="$style.checkbox"></span>
   </label>
 </template>
@@ -43,7 +48,7 @@ export default {
   margin-right: 0.5rem;
 }
 
-.inputCheckbox:checked+.checkbox {
+.inputCheckbox:checked + .checkbox {
   background-image: url("../../assets/checked.svg");
   background-size: contain;
   background-color: $yellow;

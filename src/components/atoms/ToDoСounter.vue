@@ -1,14 +1,15 @@
 <template>
-  <p :class="$style.counter">
-    {{ $store.state.tasks.filter((task) => task.isChecked != true).length }}/
-    {{ $store.state.tasks.length }}
-    left
-  </p>
+  <div :class="$style.counter">
+    <span>{{ getDoneTasks }}</span>/<span>{{ getAllTasks }}</span>left
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ToDoCounter",
+  computed: mapGetters(["getDoneTasks", "getAllTasks"]),
 };
 </script>
 
